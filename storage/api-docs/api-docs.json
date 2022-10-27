@@ -1,0 +1,103 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel Shopify",
+        "description": "shopify front api documentation",
+        "contact": {
+            "email": "info@tabtarh.com"
+        },
+        "license": {
+            "name": "tabtarh",
+            "url": "http://tabtarh.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "127.0.0.1/api",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/admin/market/brand": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "get user informations",
+                "operationId": "GetBrands",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found Exception",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/admin/market/category": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "get user informations",
+                "operationId": "GetCategories",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found Exception",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "laravel-raect shopify",
+            "description": "api documentation"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearer_token": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
