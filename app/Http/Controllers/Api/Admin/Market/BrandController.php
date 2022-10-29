@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +19,7 @@ class BrandController extends Controller
      *      path="/admin/market/brand",
      *      operationId="GetBrands",
      *      tags={"Auth"},
-     *      summary="get user informations",
+     *      summary="get brands",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -32,7 +33,6 @@ class BrandController extends Controller
      *       security={{ "bearer_token": {} }}
      *     )
      */
-
     public function index()
     {
         return ['Banner'];

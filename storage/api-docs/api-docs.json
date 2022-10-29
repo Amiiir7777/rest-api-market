@@ -14,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "127.0.0.1/api",
+            "url": "127.0.0.1/api\"",
             "description": "Demo API Server"
         }
     ],
@@ -24,7 +24,7 @@
                 "tags": [
                     "Auth"
                 ],
-                "summary": "get user informations",
+                "summary": "get brands",
                 "operationId": "GetBrands",
                 "responses": {
                     "200": {
@@ -56,8 +56,40 @@
                 "tags": [
                     "Auth"
                 ],
-                "summary": "get user informations",
-                "operationId": "GetCategories",
+                "summary": "get product categories",
+                "operationId": "GetProductCategories",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found Exception",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/test": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "get test",
+                "operationId": "test",
                 "responses": {
                     "200": {
                         "description": "Successful operation",

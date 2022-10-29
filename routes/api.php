@@ -22,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 require __DIR__ . '/admin-api/adminApiRoutes.php';
 require __DIR__ . '/user-api/userApiRoutes.php';
 
+Route::apiResource('/test', \App\Http\Controllers\TestController::class)->only('index');
+
+

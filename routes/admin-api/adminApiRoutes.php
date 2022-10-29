@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\Api\Admin\Market\CategoryController;
 use App\Http\Controllers\Api\Admin\Market\BrandController;
 use App\Http\Controllers\Api\Admin\Market\CommentController;
@@ -43,8 +42,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//admins
-//Route::apiResource('/admin', TestController::class);
 
 //admin
 Route::group(['prefix' => 'admin'], function (){

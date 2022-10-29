@@ -23,5 +23,4 @@ class Gallery extends Model
     }
 
 
-
 }

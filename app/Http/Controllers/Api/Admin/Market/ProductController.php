@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\Admin\Market;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\Admin\Market\ProductResource;
+use App\Http\Resources\Api\Admin\Market\productResource;
 use App\Http\Services\Image\ImageCacheService;
 use App\Http\Services\Image\ImageService;
 use App\Models\Market\Product;
@@ -22,7 +22,7 @@ class ProductController extends Controller
     {
         $products = Product::with('category')->orderBy('created_at', 'desc')->get();
         //return response()->json($products);
-        return new ProductResource($products);
+        return new productResource($products);
 
     }
 
@@ -42,7 +42,7 @@ class ProductController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, ImageService $imageService)
+    public function store(Request $request)
     {
 
         $inputs = $request->all();
@@ -177,9 +177,12 @@ class ProductController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request, Product $product)
     {
-
+        $product->delete();
+        return response()->json([
+            'data' => 'محصول با موفقیت حذف شد'
+        ], 200);
     }
 
 }

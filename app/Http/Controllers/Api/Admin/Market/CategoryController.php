@@ -18,9 +18,9 @@ class CategoryController extends Controller
     /**
      * @OA\Get (
      *      path="/admin/market/category",
-     *      operationId="GetCategories",
+     *      operationId="GetProductCategories",
      *      tags={"Auth"},
-     *      summary="get user informations",
+     *      summary="get product categories",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -38,7 +38,7 @@ class CategoryController extends Controller
     public function index()
     {
         //$productCategories = ProductCategory::orderBy('created_at', 'desc')->simplePaginate(15);
-        $productCategories = ['test', 'test2', 'testing'];
+        $productCategories = ProductCategory::all();
         return new CategoryResource($productCategories);
     }
 

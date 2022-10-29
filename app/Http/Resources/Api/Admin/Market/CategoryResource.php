@@ -3,8 +3,9 @@
 namespace App\Http\Resources\Api\Admin\Market;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class CategoryResource extends JsonResource
+class CategoryResource extends ResourceCollection
 {
     /**
      * Transform the resource into an array.
@@ -14,6 +15,17 @@ class CategoryResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        //return parent::toArray($request);
+        return [
+            'data' => $this->collection->map(function($category){
+                return [
+                    'id' => $category->id,
+                    'name' => $category->name,
+                    'image' => $category->image,
+                    'image' => $category->description,
+                    'slug' => $category->slug
+                ];
+            })
+        ];
     }
 }
