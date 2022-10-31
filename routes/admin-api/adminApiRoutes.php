@@ -25,6 +25,7 @@ use App\Http\Controllers\Api\Admin\Ticket\TicketController;
 use App\Http\Controllers\Api\Admin\Setting\SettingController;
 use App\Http\Controllers\Api\Admin\User\RoleController;
 use App\Http\Controllers\Api\admin\user\PermissionController;
+use App\Http\Controllers\Api\Admin\Market\MarketController;
 
 
 /*
@@ -50,6 +51,9 @@ Route::group(['prefix' => 'admin'], function (){
 
         //category
         Route::apiResource('category',CategoryController::class);
+
+        //market
+        Route::apiResource('market',MarketController::class);
 
         //brand
         Route::apiResource('brand',BrandController::class);

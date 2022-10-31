@@ -41,7 +41,7 @@ Route::middleware('profile.completion')->group(function (){
     //payment
     Route::apiResource('customer-payment',CustomerPaymentController::class);
     //market
-    Route::apiResource('market',ProductController::class);
+    //Route::apiResource('market',ProductController::class);
     //profile
     Route::apiResource('profile',ProfileAddressController::class);
 });

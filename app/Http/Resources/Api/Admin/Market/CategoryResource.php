@@ -22,7 +22,7 @@ class CategoryResource extends ResourceCollection
                     'id' => $category->id,
                     'name' => $category->name,
                     'image' => $category->image,
-                    'image' => $category->description,
+                    'description' => $category->description,
                     'slug' => $category->slug
                 ];
             })

@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Market\Market;
 use App\Models\Market\Order;
 use App\Models\Ticket\Ticket;
 use App\Models\Market\Product;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Ticket\TicketAdmin;
 use Laravel\Jetstream\HasProfilePhoto;
@@ -19,6 +21,7 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -108,5 +111,10 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function markets()
+    {
+        return $this->hasMany(Market::class);
     }
 }

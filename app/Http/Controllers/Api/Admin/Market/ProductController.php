@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin\Market;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\Admin\Market\productResource;
+use App\Http\Resources\Api\Admin\Market\ShowProductResource;
 use App\Http\Services\Image\ImageCacheService;
 use App\Http\Services\Image\ImageService;
 use App\Models\Market\Product;
@@ -76,6 +77,11 @@ class ProductController extends Controller
         DB::transaction(function () use ($request, $inputs) {
 
             $product = Product::create($inputs);
+            return response()->json([
+                'data' => [
+                    'message' => 'محصول جدید با موفقیت ثبت شد'
+                ]
+            ]);
 
             $metas = array_combine($request->meta_key, $request->meta_value);
             foreach ($metas as $key => $value) {
@@ -98,7 +104,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return new ShowProductResource($product);
     }
 
     /**
